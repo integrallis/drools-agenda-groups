@@ -1,0 +1,22 @@
+package org.integrallis.drools.examples
+ 
+rule "RuleInFamilyOne"
+    agenda-group "Group One"
+	when
+		testObject : TestObject()
+	then
+	    System.out.println("RuleInFamilyOne just fired for " + testObject);
+		
+end
+
+rule "RuleInFamilyTwo"
+    agenda-group "Group Two"
+	when
+		testObject : TestObject()
+	then
+		System.out.println("RuleInFamilyTwo just fired for " + testObject);
+end
+
+query "FindClassNameStartingWith" (Class theClass)
+    object: Object(class == theClass)
+end
